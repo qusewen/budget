@@ -11,7 +11,8 @@ export class UserEntity {
   @Column({ name: 'last_name', nullable: false })
   lastName: string;
 
-  @OneToMany(() => BudgetEntity, budget => budget.id)
-  budget: BudgetEntity[]
+  @OneToMany(type => BudgetEntity, budget => budget.id)
+  @JoinColumn()
+  budget: BudgetEntity;
   
 }

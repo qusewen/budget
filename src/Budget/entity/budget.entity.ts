@@ -1,5 +1,5 @@
 import { UserEntity } from "src/user/entity/user.entity";
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('budget')
 export class BudgetEntity {
@@ -8,6 +8,5 @@ export class BudgetEntity {
 
   @Column({ nullable: false })
   count: number;
-
 
 }
