@@ -9,25 +9,29 @@ export class UserService {
   constructor(
     @InjectRepository(UserEntity)
     private userRepository: Repository<UserEntity>
-  ){}
-  
-  create(user: UserDto): Promise<UserDto> { 
+  ) { }
+
+  create(user: UserDto): Promise<UserDto> {
     return this.userRepository.save(user);
   }
 
   findAll(): Promise<UserDto[]> {
-    return this.userRepository.find();;
+    return this.userRepository.find();
   }
-  update(employeetoUpdate){
-    this.userRepository.update(employeetoUpdate.id,employeetoUpdate);
-}
-  delete(id){
+  update(employeetoUpdate) {
+    this.userRepository.update(employeetoUpdate.id, employeetoUpdate);
+  }
+  delete(id) {
     this.userRepository.delete(id);
   }
-  find(id){
-   return this.userRepository.findOne({where:{
-    id
-   }});
+  find(id) {
+    return this.userRepository.findOne({
+      where: {
+        id
+      }
+    });
   }
-  
+
+
+
 }

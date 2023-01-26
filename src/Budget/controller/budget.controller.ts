@@ -35,7 +35,7 @@ export class BudgetController {
   @Get('find/:id')
   @HttpCode(200)
   async findOne(@Param('id') id:string) {
-    this.budgetService.find(id);
+  return  this.budgetService.find(id);
   }
 }
 
