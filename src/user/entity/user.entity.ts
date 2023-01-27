@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { BudgetEntity } from "src/Budget/entity/budget.entity";
 @Entity({name: 'users'})
 export class UserEntity {
@@ -12,9 +12,10 @@ export class UserEntity {
   lastName: string;
 
 
-  @ManyToOne(()=> BudgetEntity, (budget: BudgetEntity) => budget.counts)
-  @JoinColumn({name:'user_budget'})
-  budget: BudgetEntity
+  @OneToMany((type) => BudgetEntity, budget => budget.id )
+  @JoinColumn()
+  budget: BudgetEntity[]
+
 }
 
 

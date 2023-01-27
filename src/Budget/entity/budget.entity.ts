@@ -9,9 +9,4 @@ export class BudgetEntity {
   @Column({ nullable: false })
   count: number;
 
-  @OneToMany(()=> UserEntity, (user: UserEntity) => user.budget,{
-    onUpdate: 'CASCADE',
-    onDelete: 'CASCADE',
-  })
-  counts: Array<BudgetEntity>
 }
