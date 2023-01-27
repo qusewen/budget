@@ -5,6 +5,7 @@ import { BudgetEntity } from './entity/budget.entity';
 import { BudgetService } from './service/budget.service';
 
 
+
 @Module({
   imports: [TypeOrmModule.forFeature([BudgetEntity])],
   controllers: [BudgetController],

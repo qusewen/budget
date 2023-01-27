@@ -18,8 +18,9 @@ import { UserModule } from './user/user.module';
       "synchronize": true,
       "logging": true
     }),
+    BudgetModule,
     UserModule,
-    BudgetModule
+    
   ],
   controllers: [AppController],
   providers: [AppService],

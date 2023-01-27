@@ -1,7 +1,7 @@
 import { UserEntity } from "src/user/entity/user.entity";
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('budget')
+@Entity({name: 'budget'})
 export class BudgetEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -9,4 +9,9 @@ export class BudgetEntity {
   @Column({ nullable: false })
   count: number;
 
+  @OneToMany(()=> UserEntity, (user: UserEntity) => user.budget,{
+    onUpdate: 'CASCADE',
+    onDelete: 'CASCADE',
+  })
+  counts: Array<BudgetEntity>
 }
