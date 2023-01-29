@@ -11,7 +11,6 @@ export class UserController {
   @Post()
   @HttpCode(200)
   async create(@Body() user: UserDto): Promise<UserDto> {
-
     return this.userService.create(user);
   }
 
@@ -36,10 +35,13 @@ export class UserController {
   
   @Get('find/:id')
   @HttpCode(200)
-  async findOne(@Param('id') id:string) {
-   return this.userService.find(id);
+  async findNew(@Param('id') id:string) {
+   return this.userService.find(
+    id
+   );
   }
 
+  
   
 }
 

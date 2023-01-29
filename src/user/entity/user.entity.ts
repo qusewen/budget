@@ -1,6 +1,6 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { BudgetEntity } from "src/Budget/entity/budget.entity";
-@Entity({name: 'users'})
+@Entity({ name: 'users' })
 export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -11,7 +11,7 @@ export class UserEntity {
   @Column({ name: 'last_name', nullable: false })
   lastName: string;
 
-@OneToMany(type => BudgetEntity, budget => budget.users)
+  @ManyToOne(type => BudgetEntity, budget => budget.id)
   budget: BudgetEntity[]
 }
 

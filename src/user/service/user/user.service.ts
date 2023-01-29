@@ -2,7 +2,7 @@ import { Injectable, Param } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BudgetEntity } from 'src/Budget/entity/budget.entity';
 import { UserDto } from 'src/user/dto/user.dto';
-import { FindManyOptions, Repository } from 'typeorm';
+import { FindManyOptions, getRepository, Repository } from 'typeorm';
 import { UserEntity } from './../../entity/user.entity';
 
 @Injectable()
@@ -11,10 +11,8 @@ export class UserService {
     @InjectRepository(UserEntity)
     private userRepository: Repository<UserEntity>
   ) { }
-    async seed(){
-      const newUser = this.userRepository.create({id: 2})
-      await this.userRepository.save(newUser)
-    }
+
+
 
 
 
@@ -41,6 +39,24 @@ export class UserService {
         id
       }
     });
+  }
+
+
+  findNew(id){
+    return this.userRepository.find({ 
+      where:{
+        id,
+        name: true,
+        last_name: true,
+        relations:[{
+          id: true,
+          count: true
+        }],
+      }
+      
+
+    })
+      
   }
 
 

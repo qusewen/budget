@@ -1,7 +1,7 @@
 import { UserEntity } from "src/user/entity/user.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity({name: 'budget'})
+@Entity({ name: 'budget' })
 export class BudgetEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -10,6 +10,6 @@ export class BudgetEntity {
   count: number;
 
 
-  @ManyToOne(type => UserEntity, users => users.budget)
-  users: UserEntity
+  @OneToMany(type => UserEntity, users => users.id)
+  users: UserEntity[]
 }
