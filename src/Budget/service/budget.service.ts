@@ -11,6 +11,7 @@ export class BudgetService {
     private budgetRepository: Repository<BudgetEntity>
   ) { }
 
+
   create(budget: BudgetDto): Promise<BudgetDto> {
     return this.budgetRepository.save(budget)
   }

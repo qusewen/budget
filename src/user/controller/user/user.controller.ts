@@ -10,9 +10,11 @@ export class UserController {
 
   @Post()
   @HttpCode(200)
-  create(@Body() user: UserDto): Promise<UserDto> {
+  async create(@Body() user: UserDto): Promise<UserDto> {
+
     return this.userService.create(user);
   }
+
 
   @Get()
   @HttpCode(200)

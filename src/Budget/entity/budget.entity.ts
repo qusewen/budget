@@ -9,4 +9,7 @@ export class BudgetEntity {
   @Column({ nullable: false })
   count: number;
 
+
+  @ManyToOne(type => UserEntity, users => users.budget)
+  users: UserEntity
 }

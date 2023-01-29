@@ -11,11 +11,19 @@ export class UserService {
     @InjectRepository(UserEntity)
     private userRepository: Repository<UserEntity>
   ) { }
+    async seed(){
+      const newUser = this.userRepository.create({id: 2})
+      await this.userRepository.save(newUser)
+    }
+
+
 
 
   create(user: UserDto): Promise<UserDto> {
     return this.userRepository.save(user);
   }
+
+  
 
   findAll(): Promise<UserDto[]> {
     return this.userRepository.find();
@@ -37,7 +45,6 @@ export class UserService {
 
 
 
-  
 
 
 

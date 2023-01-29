@@ -1,4 +1,4 @@
-import { IsNumber, IsString } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString } from "class-validator";
 import { BudgetDto } from "src/Budget/dto/budget.dto";
 
 export class UserDto {
@@ -11,4 +11,5 @@ export class UserDto {
 
   @IsString()
   lastName: string;
+
 }
