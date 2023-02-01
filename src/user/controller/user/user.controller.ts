@@ -1,6 +1,7 @@
 import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
 import { HttpCode } from '@nestjs/common/decorators';
 import { Body, Param } from '@nestjs/common/decorators/http/route-params.decorator';
+import { BudgetEntity } from 'src/Budget/entity/budget.entity';
 import { UserDto } from 'src/user/dto/user.dto';
 import { UserService } from 'src/user/service/user/user.service';
 
@@ -8,12 +9,14 @@ import { UserService } from 'src/user/service/user/user.service';
 export class UserController {
   constructor(private userService: UserService) { }
 
+
   @Post()
   @HttpCode(200)
   async create(@Body() user: UserDto): Promise<UserDto> {
     return this.userService.create(user);
   }
 
+  
 
   @Get()
   @HttpCode(200)

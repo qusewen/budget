@@ -12,16 +12,9 @@ export class UserService {
     private userRepository: Repository<UserEntity>
   ) { }
 
-
-
-
-
-
   create(user: UserDto): Promise<UserDto> {
     return this.userRepository.save(user);
   }
-
-  
 
   findAll(): Promise<UserDto[]> {
     return this.userRepository.find();
@@ -34,35 +27,10 @@ export class UserService {
     this.userRepository.delete(id);
   }
   find(id) {
-    return this.userRepository.findOne({
+    return this.userRepository.find({
       where: {
-        id
-      }
-    });
-  }
-
-
-  findNew(id){
-    return this.userRepository.find({ 
-      where:{
         id,
-        name: true,
-        last_name: true,
-        relations:[{
-          id: true,
-          count: true
-        }],
-      }
-      
-
-    })
-      
-  }
-
-
-
-
-
-
-
-}
+      },
+      relations: ['budget']
+  })
+  }}
