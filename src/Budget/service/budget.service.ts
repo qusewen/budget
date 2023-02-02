@@ -29,7 +29,8 @@ export class BudgetService {
     return this.budgetRepository.findOne({
       where: {
         id
-      }
+      },
+      relations: ['users']
     });
   }
 

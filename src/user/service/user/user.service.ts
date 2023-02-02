@@ -31,6 +31,5 @@ export class UserService {
       where: {
         id,
       },
-      relations: ['budget']
   })
-  }}
+}}
