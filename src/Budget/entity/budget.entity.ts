@@ -10,6 +10,6 @@ export class BudgetEntity {
   count: number;
 
 
-  @OneToMany(type => UserEntity, users => users.id)
+  @ManyToOne(type => UserEntity, users => users.id)
   users: UserEntity[]
 }

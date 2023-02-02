@@ -12,7 +12,7 @@ export class UserEntity {
   @Column({ name: 'last_name', nullable: false })
   lastName: string;
 
-  @ManyToOne(type => BudgetEntity, budget => budget.id)
+  @OneToMany(type => BudgetEntity, budget => budget.id)
   @JoinTable()
   budget: BudgetEntity[]
 }
